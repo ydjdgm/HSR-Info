@@ -9,7 +9,7 @@
 
 <div class="navbar {isOpen ? '' : 'collapsedNavbar'}">
 	<button class="toggleBtn" on:click={toggleNavbar}>
-		{isOpen ? 'X' : '☰'}
+		{isOpen ? 'x' : '☰'}
 	</button>
 	<img class="logo" src="/starrail_logo.png" alt="Starrail Logo" />
 	<ul class="menuList">
@@ -22,16 +22,30 @@
 
 <style>
 	.navbar {
-		width: 250px;
+		width: 13vw;
+		max-width: 250px;
+		height: 100vh;
+		overflow-y: auto;
+		scrollbar-width: none;
 		background: #0c0c1f;
 		color: white;
-		height: 100vh;
-		transition: transform 0.3s ease;
-		overflow: hidden;
 		position: fixed;
 		top: 0;
 		left: 0;
+		transition: transform 0.3s ease;
 		transform: translateX(0);
+	}
+	@media (max-width: 768px) {
+		.navbar {
+			width: 25vw;
+			min-width: 140px;
+		}
+	}
+	@media (max-width: 480px) {
+		.navbar {
+			width: 30vw;
+			min-width: 120px;
+		}
 	}
 
 	.collapsedNavbar {
@@ -48,10 +62,12 @@
 	}
 
 	.toggleBtn {
+		width: 40px;
+		height: 40px;
 		position: absolute;
 		top: 10px;
 		right: 10px;
-		background: transparent;
+		background: rgb(188, 188, 206);
 		border: none;
 		color: white;
 		padding: 5px 10px;
