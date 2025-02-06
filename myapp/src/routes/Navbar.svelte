@@ -13,10 +13,10 @@
 	</button>
 	<a class="logoA {isOpen ? '' : 'collapsedLogoA'}" href="/"><img src="/starrail_logo.png" alt="Starrail Logo" /></a>
 	<ul class="menuLi">
-		<li class="menuEle"><a href="/"><button class="eleABtn"><img class="eleABtnImg {isOpen ? '' : 'collapsedEleABtnImg'}" src="/navbar/home.png" alt="home"><h1 class="eleABtnH1 {isOpen ? '' : 'collapsedEleABtnH1'}">Home</h1></button></a></li>
-		<li class="menuEle"><a href="/char"><button class="eleABtn"><img class="eleABtnImg {isOpen ? '' : 'collapsedEleABtnImg'}" src="/navbar/char.png" alt="char"><h1 class="eleABtnH1">Character</h1></button></a></li>
-		<li class="menuEle"><a href="/lightcone"><button class="eleABtn"><img class="eleABtnImg {isOpen ? '' : 'collapsedEleABtnImg'}" src="/navbar/lightcone.png" alt="lightcone"><h1 class="eleABtnH1">Lightcone</h1></button></a></li>
-		<li class="menuEle"><a href="/relic"><button class="eleABtn"><img class="eleABtnImg {isOpen ? '' : 'collapsedEleABtnImg'}" src="/navbar/relic.png" alt="relic"><h1 class="eleABtnH1">Relic</h1></button></a></li>
+		<li class="menuEle {isOpen ? '' : 'collapsedMenuEle'}"><a href="/"><button class="eleABtn"><img class="eleABtnImg" src="/navbar/home.png" alt="home"><h1 class="eleABtnH1 {isOpen ? '' : 'collapsedEleABtnH1'}">Home</h1></button></a></li>
+		<li class="menuEle {isOpen ? '' : 'collapsedMenuEle'}"><a href="/char"><button class="eleABtn"><img class="eleABtnImg" src="/navbar/char.png" alt="char"><h1 class="eleABtnH1 {isOpen ? '' : 'collapsedEleABtnH1'}">Character</h1></button></a></li>
+		<li class="menuEle {isOpen ? '' : 'collapsedMenuEle'}"><a href="/lightcone"><button class="eleABtn"><img class="eleABtnImg" src="/navbar/lightcone.png" alt="lightcone"><h1 class="eleABtnH1 {isOpen ? '' : 'collapsedEleABtnH1'}">Lightcone</h1></button></a></li>
+		<li class="menuEle {isOpen ? '' : 'collapsedMenuEle'}"><a href="/relic"><button class="eleABtn"><img class="eleABtnImg" src="/navbar/relic.png" alt="relic"><h1 class="eleABtnH1 {isOpen ? '' : 'collapsedEleABtnH1'}">Relic</h1></button></a></li>
 		<!-- <li class = "menuElement"><a class="navA" href="/"><button class="navButton {isOpen ? '' : 'collapsedNavButton'}"><img class="navIcon {isOpen ? '' : 'collapsedNavIcon'}" src="/navbar/home.png" alt="home">Home</button></a>
 		<li class = "menuElement"><a class="navA" href="/char"><button class="navButton"><img class="navIcon {isOpen ? '' : 'collapsedNavIcon'}" src="/navbar/char.png" alt="char">Character</button></a>
 		<li class = "menuElement"><a class="navA" href="/lightcone"><button class="navButton"><img class="navIcon {isOpen ? '' : 'collapsedNavIcon'}" src="/navbar/lightcone.png" alt="lightcone">Lightcone</button></a>
@@ -49,7 +49,7 @@
 		top: 1%;
 		right: 5%;
 		/* background: transparent; */
-		background-color: rgb(27, 107, 177);
+		background-color: transparent;
 		color: white;
 		z-index: 1;
 		font-size: 1vw;
@@ -75,30 +75,36 @@
 
 	.menuEle{
 		display: flex;
+		margin: 0.5vh 0;	/* 위 아래 간격 */
+		transition: transform 0.3s ease;
+	}.collapsedMenuEle{
+		transform: translateX(9.7vw) translateY(-13vh);
 	}
 
 	.eleABtn{
 		display: flex;
+		align-items: center; /* 내부 요소들을 상하 중앙 정렬 */
 		width: 13vw;
-		background-color: rgb(72, 100, 100);
+		left: 10vw;
+		gap: 1vw;
+		padding: 0.5vh 0;	/* 버튼 내부 위아래 여백 추가 */
+		transition: transform 0.2s ease, background-color 0.2s ease;
+	}.eleABtn:hover{	/* 커서 올릴시 */
+		transform: scale(1.05); /* 크기 살짝 확대 */
+    	background-color: rgb(90, 120, 120, 0.5); /* 배경색 조금 밝게 */		
 	}
 
 	.eleABtnImg{
-		width: 3vw;
+		width: 2vw;
 		transition: transform 0.3s ease;
-	}.collapsedEleABtnImg{
-		transform: translateX(10vw) translateY(-3vh);
+		margin-left: 1vw;
 	}
 
 	.eleABtnH1{
-		font-size: 1.5vw;
+		font-size: 1vw;
 		color: white;
 		visibility: visible;
-		opacity: 1;
-		transition: opacity 0.3s ease;
 	}.collapsedEleABtnH1{
 		visibility: hidden;
-		opacity: 0;
-		transition: visibility 0s 0.3s, opacity 0.3s ease;
 	}
 </style>
